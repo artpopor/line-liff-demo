@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     const initializeLiff = async () => {
       try {
-        await liff.init({ liffId: '' });
+        await liff.init({ liffId: '2005869975-nMZOOGBm' });
         if (liff.isLoggedIn()) {
           const profile = await liff.getProfile();
           setName(profile.displayName);

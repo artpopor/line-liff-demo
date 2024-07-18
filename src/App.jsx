@@ -17,16 +17,18 @@ class App extends Component {
     };
   }
 
-  getProfile() {
-    liff.init(async () => {
-      let getProfile = await liff.getProfile();
-      this.setState({
-        name: getProfile.displayName,
-        userLineID: getProfile.userId,
-        pictureUrl: getProfile.pictureUrl,
-        statusMessage: getProfile.statusMessage
-      });
+
+  getProfile = async () => {
+    await liff.init({ liffId: `2005869975-nMZOOGBm` }).catch(err => { throw err });
+
+    let getProfile = await liff.getProfile();
+    this.setState({
+      name: getProfile.displayName,
+      userLineID: getProfile.userId,
+      pictureUrl: getProfile.pictureUrl,
+      statusMessage: getProfile.statusMessage
     });
+
   }
 
   sendMessage() {
